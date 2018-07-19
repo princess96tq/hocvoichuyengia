@@ -18,8 +18,8 @@ public enum GioiTinh {
         this.tmp = tmp;
     }
 
-    public void nhap() {
-        System.out.print("Giới tính: 1= Nam, 0=Nữ, -1 = Không xác định");
-        this.tmp = new Scanner(System.in).nextInt();
-    }
+//    public void nhap() {
+//        System.out.println("Giới tính: 1= Nam, 0=Nữ, -1 = Không xác định");
+//        this.tmp = new Scanner(System.in).nextInt();
+//    }
 }

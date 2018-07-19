@@ -1,15 +1,15 @@
 package Buoi3;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class NhanVien {
-    private int maNV =0;
+    private int maNV;
     private String tenNV;
     private GioiTinh gioiTinh;
+
+
     public int getMaNV() {
-        return maNV++;
+        return maNV;
     }
 
     public String getTenNV() {
@@ -28,30 +28,38 @@ public class NhanVien {
         this.gioiTinh = gioiTinh;
     }
 
+    public NhanVien() {
+    }
+
+    public NhanVien(int maNV) {
+        this.maNV = maNV;
+    }
+
     public NhanVien(int maNV, String tenNV, GioiTinh gioiTinh) {
-        this.maNV = maNV++;
+        this.maNV = maNV;
         this.tenNV = tenNV;
         this.gioiTinh = gioiTinh;
     }
-    public void nhapTT(){
-        int tmp;
-        System.out.println("            Mời nhập danh sách nhân viên");
+
+    public void nhapTT() {
+        System.out.println("            Mời nhập thông tin nhân viên");
         System.out.println("======================================================");
-        System.out.print("              Số lượng nhân viên: ");
-        tmp = new Scanner(System.in).nextInt();
-        System.out.println(" Mã nhân viên ||" + "   Họ và tên   ||" + " Giới tính ");
-        for (int i = this.maNV;i<tmp; i++){
-            System.out.print(i+".");
-            System.out.print("Họ tên: ");
-            this.tenNV = new Scanner(System.in).nextLine();
-            this.gioiTinh.nhap();
+        System.out.println("Mã nhân viên sẽ tự sinh bởi hệ thống!");
+        System.out.println("Họ tên: ");
+        this.tenNV = new Scanner(System.in).nextLine();
+        System.out.println("Nhập 1 nếu là Nam, 0 là Nữ, -1 nếu không xác định");
+        int input = new Scanner(System.in).nextInt();
+        if (input == 1) {
+            gioiTinh = GioiTinh.NAM;
+        }else if(input == 0){
+            gioiTinh = GioiTinh.NU;
+        }else {
+            gioiTinh = GioiTinh.KXD;
         }
     }
-    public void hienTT(){
-        System.out.println("Danh sách nhân viên công ty HVAT");
-        System.out.println("===========================================================");
-        System.out.println(" Mã nhân viên ||" + "   Họ và tên   ||" + " Giới tính ");
-        System.out.println("  "+maNV+"    ||"+  tenNV + "||"+gioiTinh);
 
+    public void hienTT() {
+        System.out.println("\t" + maNV + "\t||" + tenNV + "||" + gioiTinh);
     }
+
 }
