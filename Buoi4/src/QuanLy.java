@@ -56,6 +56,7 @@ public class QuanLy extends NhanVien {
         } else {
             phuCap = 1000;
         }
+        setLuong(getLuong()+phuCap);
         return getLuong()+phuCap;
     }
 }

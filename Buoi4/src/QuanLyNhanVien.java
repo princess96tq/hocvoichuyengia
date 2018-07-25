@@ -87,49 +87,116 @@ public class QuanLyNhanVien {
             }
 
         }
-        public void sapXep(){
-            Collections.sort(danhSach, new Comparator<NhanVien>() {
-                @Override
-                public int compare(NhanVien nhanVien1, NhanVien nhanVien2) {
-                    return (nhanVien1.getTenNV().compareTo(nhanVien2.getTenNV()));
-                }
-            });
 
-            System.out.println("Danh sách sắp xếp theo tên: ");
-            for (int i = 0; i < danhSach.size(); i++) {
-                System.out.println("Tên: " + danhSach.get(i).getTenNV() + " Giới tính: " + danhSach.get(i).getGioiTinh());
+        public void timNhanVien() {
+            System.out.println("Tìm nhân viên có thu nhập cao nhất theo: ");
+            System.out.println("1 - Giới tính");
+            System.out.println("2 - Theo vị trí ( nv văn phòng, công nhân, quản lý)");
+            Scanner sc=new Scanner(System.in);
+            String chon=sc.nextLine();
+            switch(chon){
+                case"1":
+                    timGT();
+                    break;
+                case "2":
+                    timVT();
+                    break;
+                default:
+                    break;
+
             }
-
         }
 
-//        public void timNhanVien() {
-//            System.out.println("Tìm nhân viên theo giới tình nào?????");
-//            System.out.println("Chọn 1 nếu là Nam, 0 là Nữ, -1 nếu không xác định ");
-//            Scanner sc=new Scanner(System.in);
-//            String chon=sc.nextLine();
-//            switch(chon){
-//                case"1":
-//                    for (NhanVien nhanVien : list) {
-//                        if (nhanVien.getGioiTinh() == GioiTinh.NAM) {
-//                            danhSach.add(nhanVien);
-//                        }
-//                        sapXep();
-//                    }
-//
-//                    break;
-//                case "2":
-//                    for (NhanVien nhanVien : list) {
-//                        if (nhanVien.getGioiTinh() == GioiTinh.NU) {
-//                            danhSach.add(nhanVien);
-//                        }
-//                        sapXep();
-//                    }
-//
-//                    break;
-//                case "3":
-//                    break;
-//
-//            }
-//        }
+    private void timVT() {
+        System.out.println("1 - Quan ly");
+        System.out.println("2 - Nhan vien VP ");
+        System.out.println("3 - Cong nhan ");
+        float tmp;
+        int mNV;
+        Scanner sc=new Scanner(System.in);
+        String chon=sc.nextLine();
+        switch(chon){
+            case"1":
+                tmp = 0;
+                mNV = -1;
+                for (QuanLy quanLy : list1){
+                    tmp = Math.max(tmp,quanLy.thuNhap());
+                }
+                for (QuanLy quanLy : list1){
+                    if (quanLy.thuNhap() == tmp){
+                        System.out.println("Quan ly co thu nhap cao nhat la: ");
+                        quanLy.hienTT();
+                    }
+                }
+                break;
+            case "2":
+                System.out.println("Tuong tu 1");
+                break;
+            case "3":
+                System.out.println("Tuong tu 1");
+                break;
+            default:
+                break;
+
+        }
+    }
+
+    private void timGT() {
+        float tmp;
+        int mNV;
+        System.out.println("1 - Nam");
+        System.out.println("2 - Nu");
+        System.out.println("3 - KXD");
+        Scanner sc=new Scanner(System.in);
+        String chon=sc.nextLine();
+        switch(chon){
+            case"1":
+                tmp = 0.0f;
+                mNV = -1;
+                for (QuanLy quanLy : list1){
+                    if(quanLy.getGioiTinh() == GioiTinh.NAM){
+                        tmp = Math.max(tmp,quanLy.thuNhap());
+                    }
+                }
+                for (NhanVienVanPhong nhanVienVanPhong : list2){
+                    if(nhanVienVanPhong.getGioiTinh() == GioiTinh.NAM){
+                        tmp = Math.max(tmp,nhanVienVanPhong.thuNhap());
+                    }
+                }
+                for (CongNhan congNhan : list3){
+                    if(congNhan.getGioiTinh() == GioiTinh.NAM){
+                        tmp = Math.max(tmp,congNhan.thuNhap());
+                    }
+                }
+                for (QuanLy quanLy : list1){
+                    if(quanLy.thuNhap() == tmp){
+                        System.out.println("NV Nam co thu nhap cao nhat la: ");
+                        quanLy.hienTT();
+                    }
+                }
+                for (NhanVienVanPhong nhanVienVanPhong : list2){
+                    if(nhanVienVanPhong.thuNhap() == tmp){
+                        System.out.println("NV Nam co thu nhap cao nhat la: ");
+                        nhanVienVanPhong.hienTT();
+                    }
+                }
+                for (CongNhan congNhan : list3){
+                    if(congNhan.thuNhap() == tmp){
+                        System.out.println("NV Nam co thu nhap cao nhat la: ");
+                        congNhan.hienTT();
+                    }
+                }
+                break;
+            case "2":
+                System.out.println("Tuong tu 1");
+                break;
+            case "3":
+                System.out.println("Tuong tu 1");
+                break;
+            default:
+                break;
+
+        }
+    }
 }
 

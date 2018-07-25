@@ -15,7 +15,7 @@ public class Main {
         System.out.println("----------------------------------------------------------");
         System.out.println("1.  Nhập danh sách nhân viên.");
         System.out.println("2.  Hiện nhân viên đã có trong hệ thống.");
-        System.out.println("3.  Tìm nhân viên theo giới tính và sắp xếp kết quả theo tên nhân viên. ");
+        System.out.println("3.  Tìm nhân viên có thu nhập cao nhất  ");
         System.out.println("4.  Thoát ");
         System.out.println("Your choice (1-4), other to quit):");
         System.out.println("===========================================================");
@@ -30,7 +30,7 @@ public class Main {
                 quanLiNV.hienThongTin();
                 break;
             case "3":
-              //  quanLiNV.timNhanVien();
+                quanLiNV.timNhanVien();
                 break;
             case "4":
                 System.out.println("Xin chân thành cảm ơn");
