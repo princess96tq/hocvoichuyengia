@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main implements IMain {
     @Override
-    public static void showMenu(QuanLyNhanVien quanLiNV) {
+    public void showMenu(QuanLyNhanVien quanLiNV) {
         Scanner sc=new Scanner(System.in);
         String chon=sc.nextLine();
         switch(chon){
@@ -31,8 +31,9 @@ public class Main implements IMain {
 
     public static void main(String[] args) {
         QuanLyNhanVien quanLiNV=new QuanLyNhanVien();
+        Main obj = new Main();
         while (true){
-            showMenu(quanLiNV);
+            obj.showMenu(quanLiNV);
         }
     }
 }

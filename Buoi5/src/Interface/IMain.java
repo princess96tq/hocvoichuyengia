@@ -4,7 +4,7 @@ import NhanVien.QuanLyNhanVien;
 
 
 public interface IMain {
-    default void showMenu(IQuanLyNhanVien QuanLyNhanVien ){
+    default void showMenu(QuanLyNhanVien QuanLyNhanVien ){
         System.out.println("===========================================================");
         System.out.println("                       Learning JAVA");
         System.out.println("----------------------------------------------------------");
