@@ -27,6 +27,11 @@ public class QuanLyNhanVien implements IQuanLyNhanVien {
             case "1":
                 System.out.println("Nhập vào số quản lý muốn thêm: ");
                 n = new Scanner(System.in).nextInt();
+                try {
+
+                }catch (Exception e){
+
+                }
                 for (int i = n; i > 0; i--) {
                     if (list.size() > 0) {
                         quanLy = new QuanLy(list.get(list.size() - 1).getMaNV() + 1);
