@@ -22,8 +22,12 @@ public class NhanVien implements INhanVien {
         return luong;
     }
 
-    public void setLuong(float luong) {
-        this.luong = luong;
+    public void setLuong(float luong) throws LuongException{
+        if (luong <0 ){
+            throw new LuongException();
+        }else {
+            this.luong = luong;
+        }
     }
 
     public int getMaNV() {

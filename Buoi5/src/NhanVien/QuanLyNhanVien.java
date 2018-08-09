@@ -22,16 +22,19 @@ public class QuanLyNhanVien implements IQuanLyNhanVien {
     @Override
     public void nhapThongTin() {
         String chon = new Scanner(System.in).nextLine();
-        int n;
+        int n=0;
         switch (chon) {
             case "1":
                 System.out.println("Nhập vào số quản lý muốn thêm: ");
                 n = new Scanner(System.in).nextInt();
                 try {
-
-                }catch (Exception e){
-
+                    if (n<=0){
+                        throw new NhoHonKhongException();
+                    }
+                }catch (NhoHonKhongException e){
+                    System.out.println(e.getMessage());
                 }
+
                 for (int i = n; i > 0; i--) {
                     if (list.size() > 0) {
                         quanLy = new QuanLy(list.get(list.size() - 1).getMaNV() + 1);
@@ -46,7 +49,11 @@ public class QuanLyNhanVien implements IQuanLyNhanVien {
                 break;
             case "2":
                 System.out.println("Nhập vào số nhân viên văn phòng muốn thêm: ");
-                n = new Scanner(System.in).nextInt();
+                try {
+                    n = new Scanner(System.in).nextInt();
+                }catch (Exception e){
+                    System.out.println("Có lỗi xảy ra nhaaaa");
+                }
                 for (int i = n; i > 0; i--) {
                     if (list.size() > 0) {
                         nhanVienVanPhong = new NhanVienVanPhong(list.get(list.size() - 1).getMaNV() + 1);
